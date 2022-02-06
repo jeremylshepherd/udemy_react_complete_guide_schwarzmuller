@@ -8,14 +8,16 @@ const ExpenseItem = ({ date, title, amount }) => {
     const clickHandler = (e) => setItemTitle("Title changed");
 
     return (
-        <Card className="expense-item">
-            <ExpenseDate date={date} />
-            <div className="expense-item__description">
-                <h2>{itemTitle}</h2>
-                <div className="expense-item__price">{`$${amount}`}</div>
-            </div>
-            <button onClick={clickHandler}>Change Title</button>
-        </Card>
+        <li>
+            <Card className="expense-item">
+                <ExpenseDate date={date} />
+                <div className="expense-item__description">
+                    <h2>{itemTitle}</h2>
+                    <div className="expense-item__price">{`$${amount}`}</div>
+                </div>
+                <button onClick={clickHandler}>Change Title</button>
+            </Card>
+        </li>
     );
 };
 

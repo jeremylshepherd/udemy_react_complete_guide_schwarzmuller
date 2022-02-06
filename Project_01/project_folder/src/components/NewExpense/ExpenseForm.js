@@ -50,11 +50,25 @@ const ExpenseForm = (props) => {
         e.preventDefault();
         const expenseData = {
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: +enteredAmount,
             date: new Date(enteredDate),
         };
         props.onSaveExpenseData(expenseData);
         resetInputs();
+        props.onToggleForm();
+    };
+
+    const disableForm = () => {
+        return (
+            enteredTitle.length < 3 ||
+            enteredAmount.length < 2 ||
+            enteredDate.length < 1
+        );
+    };
+
+    const handleCancel = () => {
+        resetInputs();
+        props.onToggleForm();
     };
 
     return (
@@ -93,7 +107,10 @@ const ExpenseForm = (props) => {
                 </div>
             </div>
             <div className="new-expense__actions">
-                <button type="submit">Add Expense</button>
+                <button onClick={handleCancel}>Cancel</button>
+                <button type="submit" disabled={disableForm()}>
+                    Add Expense
+                </button>
             </div>
         </form>
     );
