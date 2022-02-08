@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import ReactDOM from "react-dom";
 import Button from "../Button/Button";
 import "./Modal.css";
 
@@ -24,20 +25,28 @@ const Modal = (props) => {
         props.onAcknowledge();
     };
 
+    const Backdrop = () => <div className="modal__container" />;
     return (
-        <div className="modal__container">
-            <div ref={ref} className="modal">
-                <header className="modal__header">
-                    <div>{props.title}</div>
-                </header>
-                <div className="modal__message">{props.message}</div>
-                <Button
-                    className="modal__button"
-                    text="Okay"
-                    onClick={closeDialog}
-                />
-            </div>
-        </div>
+        <>
+            {ReactDOM.createPortal(
+                <Backdrop />,
+                document.querySelector("#backdrop-root")
+            )}
+            {ReactDOM.createPortal(
+                <div ref={ref} className="modal">
+                    <header className="modal__header">
+                        <div>{props.title}</div>
+                    </header>
+                    <div className="modal__message">{props.message}</div>
+                    <Button
+                        className="modal__button"
+                        text="Okay"
+                        onClick={closeDialog}
+                    />
+                </div>,
+                document.querySelector("#overlay-root")
+            )}
+        </>
     );
 };
 

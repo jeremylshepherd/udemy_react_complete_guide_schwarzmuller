@@ -1,4 +1,5 @@
 .modal {
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -6,19 +7,21 @@
     background-color: white;
     width: 240px;
     height: 120px;
-    z-index: 5;
+    z-index: 100;
     border-radius: 5px;
     overflow: hidden;
+    top: 80px;
+    left: calc(50% - 120px);
 }
 
 .modal__container {
-    position: absolute;
+    position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.75);
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1;
+    z-index: 10;
 }
 
 .modal__header {
@@ -36,5 +39,4 @@
 .modal__button {
     align-self: end;
     margin: 5px;
-    z-index: 15;
 }
