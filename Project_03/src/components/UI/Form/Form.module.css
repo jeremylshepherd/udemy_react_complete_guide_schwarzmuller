@@ -1,0 +1,18 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100px;
+}
+
+.form label {
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.form input {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}

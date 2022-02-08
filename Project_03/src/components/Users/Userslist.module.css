@@ -1,0 +1,8 @@
+.users-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.users-list div:not(:last-child) {
+    margin-bottom: .25rem;
+}

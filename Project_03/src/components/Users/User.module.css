@@ -1,0 +1,12 @@
+.user {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+
+.user div {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 2px;
+    width: 100%;
+}
